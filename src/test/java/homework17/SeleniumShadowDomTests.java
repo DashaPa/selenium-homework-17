@@ -31,7 +31,7 @@ class SeleniumShadowDomTests {
     void testShadowDom() {
         driver.get(BASE_URL + "shadow-dom.html");
 
-        // по примеру лекций: элемент не доступен напрямую, получаем доступ к изолированному Shadow Dom
+        // из лекции: элемент не доступен напрямую, получаем доступ к изолированному Shadow Dom
         assertThrows(NoSuchElementException.class, () -> driver.findElement(By.cssSelector("p")));
         //находим элемент, содержащий Shadow DOM
         WebElement content = driver.findElement(By.id("content"));
