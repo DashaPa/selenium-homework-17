@@ -16,6 +16,12 @@ build/
 out/
 !**/src/main/**/out/
 !**/src/test/**/out/
+.idea/
+*.iml
+build/
+out/
+.gradle/
+.DS_Store
 
 ### Eclipse ###
 .apt_generated
