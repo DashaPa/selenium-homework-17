@@ -24,10 +24,10 @@ jobs:
 
       - name: Make gradlew executable
         run: chmod +x gradlew
-      - name: Install Firefox and Xvfb
+      - name: Install Firefox and dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y firefox xvfb
+          sudo apt-get install -y firefox xvfb libxi6 libgconf-2-4 libxss1 libnss3 libasound2
       - name: Run Selenide tests with virtual display
         run: |
           export DISPLAY=:99
