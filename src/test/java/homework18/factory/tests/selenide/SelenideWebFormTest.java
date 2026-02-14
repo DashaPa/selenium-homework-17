@@ -16,6 +16,11 @@ public class SelenideWebFormTest {
 
     private static final Logger log = LoggerFactory.getLogger(SelenideWebFormTest.class);
     private static final String FORM_URL = "https://bonigarcia.dev/selenium-webdriver-java/web-form.html";
+    static {
+        Configuration.headless = true;
+        Configuration.browser = "firefox";
+        Configuration.timeout = 10000;
+    }
 
     private SelenideElement textInput;
     private SelenideElement textarea;
