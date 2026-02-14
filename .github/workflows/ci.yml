@@ -24,9 +24,15 @@ jobs:
 
       - name: Make gradlew executable
         run: chmod +x gradlew
-
-      - name: Run Selenide tests
-        run: ./gradlew clean test --tests "homework18.factory.tests.selenide.*" -Dselenide.headless=true
+      - name: Install Firefox and Xvfb
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y firefox xvfb
+      - name: Run Selenide tests with virtual display
+        run: |
+          export DISPLAY=:99
+          Xvfb :99 -screen 0 1920x1080x24 &
+          ./gradlew clean test --tests "homework18.factory.tests.selenide.*" -Dselenide.headless=true
 
       - name: Upload test reports
         if: always()
